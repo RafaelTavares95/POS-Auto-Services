@@ -1,0 +1,6 @@
+edu\ifpb\pos\pecas\basico\services\PecaServiceImpl.class
+edu\ifpb\pos\pecas\basico\dao\DAOJPA.class
+edu\ifpb\pos\pecas\basico\services\PecaService.class
+edu\ifpb\pos\pecas\basico\entities\Peca.class
+edu\ifpb\pos\pecas\basico\Publisher.class
+edu\ifpb\pos\pecas\basico\dao\DAO.class

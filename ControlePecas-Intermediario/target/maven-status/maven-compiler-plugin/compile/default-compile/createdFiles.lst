@@ -1,0 +1,6 @@
+edu\ifpb\pos\pecas\basico\services\PecaService.class
+edu\ifpb\pos\controlepecas\intermediario\entities\Peca.class
+edu\ifpb\pos\controlepecas\intermediario\App.class
+edu\ifpb\pos\controlepecas\intermediario\ServiceReader.class
+edu\ifpb\pos\controlepecas\intermediario\JsonConverter.class
+edu\ifpb\pos\controlepecas\intermediario\resources\EstoqueResource.class
