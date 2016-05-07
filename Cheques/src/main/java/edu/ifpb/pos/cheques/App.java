@@ -6,8 +6,7 @@
 
 package edu.ifpb.pos.cheques;
 
-import edu.ifpb.pos.cheques.resources.ChequeEmitidoResource;
-import edu.ifpb.pos.cheques.resources.ChequeRecebidoResource;
+import edu.ifpb.pos.cheques.resources.ChequeInsertResource;
 import edu.ifpb.pos.cheques.resources.ChequeResource;
 import org.restlet.Application;
 import org.restlet.Component;
@@ -24,9 +23,8 @@ public class App {
         component.getServers().add(Protocol.HTTP, 8060);
         
         Router router = new Router();
-        router.attach("/cheque/r", ChequeRecebidoResource.class);
-        router.attach("/cheque/e", ChequeEmitidoResource.class);
-        router.attach("/cheque/{numero}", ChequeResource.class);
+        router.attach("/cheque/{filtro-tipo}", ChequeInsertResource.class);
+        router.attach("/cheque/{filtro-tipo}/{numero}", ChequeResource.class);
         
         Application application = new Application();
         application.setInboundRoot(router);

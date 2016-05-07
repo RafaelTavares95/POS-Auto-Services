@@ -19,16 +19,22 @@ import org.restlet.resource.ServerResource;
  *
  * @author Rafael
  */
-public class ChequeRecebidoResource extends ServerResource{
+public class ChequeInsertResource extends ServerResource{
     private final DAO<Cheque> dao = new DAOJPA();
     
     @Post
-     public StringRepresentation addChequeRecebido(Representation r) {
+     public StringRepresentation addCheque(Representation r) {
         try {
-            String q = r.getText();
-            Cheque cheque = JsonConverter.convertToCheque(q);
-            dao.salvar(cheque);
-            return new StringRepresentation("Success: Cheque inserido com sucesso!");
+            String c = (String) getRequest().getAttributes().get("filtro-tipo");
+            if((c.equals("recebido"))||(c.equals("emitido"))){
+                String q = r.getText();
+                Cheque cheque = JsonConverter.convertToCheque(q);
+                cheque.setOutras_inf("CHEQUE " + c.toUpperCase());
+                dao.salvar(cheque);
+                return new StringRepresentation("Success: Cheque do tipo ("+c+") inserido com sucesso!");
+            }else{
+                throw new Exception("O parâmetro deve conter o valor (emitido) ou (recebido)!!!!");
+            }
         } catch (Exception ex) {
             return new StringRepresentation("Error: " + ex.getMessage());
         }
